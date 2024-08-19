@@ -1,60 +1,320 @@
+body {
+    background: #000046;
+    background: -webkit-linear-gradient(to right, #1CB5E0, #000046);
+    background: linear-gradient(to right, #1CB5E0, #000046);
 
-
-.container
-{
-    width: 500px;
-    border-radius: 50%;
 }
-.roulette
-{
+
+header {
+    background: #000000;
+    background: -webkit-linear-gradient(to right, #434343, #000000);
+    background: linear-gradient(to right, #434343, #000000);
+}
+
+h1 {
+    font-family: "Dancing Script", cursive;
+}
+
+
+/** Estilos del contenedor de input y buttons  -----------------------------------------------------------------*/
+.custom-size-container {
+    width: 550px;
+}
+
+.container-btns {
+    width: 750px;
+}
+
+.custom-size-input {
+    width: auto;
+}
+
+.custom-size-input:focus {
+    border-color: #0b0d6d;
+    box-shadow: 0 0 0 0.2rem rgba(21, 6, 241, 0.25);
+}
+
+.custom-btn-add,
+.custom-btn-modify,
+.custom-btn-all-delete,
+.custom-btn-save {
+    position: relative;
+    padding: 10px 20px;
+    border-radius: 7px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: transparent;
+    color: #fff;
+    overflow: hidden;
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+.custom-btn-add {
+    border: 2px solid rgb(8, 220, 248);
+}
+
+.custom-btn-modify {
+    border: 2px solid rgb(248, 244, 23);
+}
+
+.custom-btn-all-delete {
+    border: 2px solid rgb(199, 9, 9);
+}
+
+.custom-btn-save {
+    border: 2px solid rgb(11, 233, 30);
+}
+
+.custom-btn-add:hover {
+    background: rgb(6, 98, 235);
+    box-shadow: 0 0 30px 5px rgba(2, 245, 253, 0.815);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+.custom-btn-modify:hover {
+    background: rgb(241, 219, 19);
+    box-shadow: 0 0 30px 5px rgba(253, 237, 11, 0.815);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+.custom-btn-all-delete:hover {
+    background: rgb(241, 32, 32);
+    box-shadow: 0 0 30px 5px rgba(238, 36, 36, 0.815);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+.custom-btn-save:hover {
+    background: rgb(19, 197, 43);
+    box-shadow: 0 0 30px 5px rgba(23, 247, 53, 0.815);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+
+/** Estilos sobre el contenedor de nombres de categorias ------------------------------------------------------*/
+
+.scrollbar {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 10px;
+    /* Ancho de la barra de desplazamiento */
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background-color: #2f2f30;
+    /* Color del "pulgar" */
+    border-radius: 10px;
+    /* Bordes redondeados del "pulgar" */
+}
+
+.editable {
+    border: 1px solid #a8a7a4;
+    /* Border color */
+    padding: 2px;
+    /* Padding to make space inside the border */
+    min-width: 80px;
+    /* Minimum width to make the span visible */
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.editable:focus {
+    outline: none;
+    /* Quitar el borde predeterminado de enfoque */
+    border-color: rgb(28, 80, 250);
+    /* Cambiar el color del borde cuando está enfocado */
+    box-shadow: 0 0 0 2px rgba(0, 0, 255, 0.2);
+    /* Borde interno */
+}
+
+
+/** Estilos de la ruleta --------------------------------------------------------------------------------*/
+.container {
+    width: 500px;
+    height: 640px;
+    position: relative;
+}
+
+.custom-background {
+    background: #0F2027;
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+}
+
+.border-roulette {
+    position: relative;
+    margin: auto;
     width: 450px;
     height: 450px;
+    border-radius: 50%;
+    z-index: 3;
+}
+
+.needle {
+    position: absolute;
+    left: 44%;
+    /* font-size: 45px; */
+    /* font-weight: lighter; */
+    z-index: 5;
+    /* color: #31940a; */
+}
+
+@keyframes tickMove {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+        /* Ajusta según sea necesario */
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.tick-animation {
+    animation: tickMove 0.1s ease;
+}
+
+
+.roulette {
+    width: 400px;
+    height: 400px;
     position: relative;
     border-radius: 50%;
     overflow: hidden;
-    transform: rotate(-18deg);
+    transform: rotate(495deg);
+    /* animation: girar 15s linear infinite; */
+    z-index: 4;
 }
-
-.section {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    clip-path: polygon(50% 50%, 100% 0%, 100% 100%);
-    transform-origin: 50% 50%;
-    z-index: 1;
-}
-
-.section:nth-child(1) { transform: rotate(0deg); background-color: #a34c4c; }
-.section:nth-child(2) { transform: rotate(36deg); background-color: #ff0; }
-.section:nth-child(3) { transform: rotate(72deg); background-color: #0f0;  }
-.section:nth-child(4) { transform: rotate(108deg); background-color: #0ff;  }
-.section:nth-child(5) { transform: rotate(144deg); background-color: #00f;  }
-.section:nth-child(6) { transform: rotate(180deg); background-color: #f0f;  }
-.section:nth-child(7) { transform: rotate(216deg); background-color: #ff6600; }
-.section:nth-child(8) { transform: rotate(252deg); background-color: #db0d40;  }
-.section:nth-child(9) { transform: rotate(288deg); background-color: #b700ff;  }
-.section:nth-child(10) { transform: rotate(324deg); background-color: #5d5a5e; }
-
-
 
 .center-circle {
-    width: 50px;
-    height: 50px;
-    background-color: rgb(34, 34, 30);
+    background: #0F2027;
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
+    cursor: pointer;
+    box-shadow: 0 0 50px rgba(0, 247, 255, 0.5);
+    /* Añade una sombra */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.custom-size-btn
-{
-    width: 100px;
+.circle-pointer {
+
+    position: absolute;
+    transform: rotate(225deg);
 }
 
-.custom-size-container
+.roulette-section {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    clip-path: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-origin: 50% 50%;
+    z-index: 1;
+}
+
+
+.span-name {
+    color: #fff;
+    font-size: 30px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    position: relative;
+    /* transform: rotate(153deg);
+    left: 30%;
+    top: -16%; */
+    width: 117px;
+    /* background-color: #000000; */
+    transform-origin: center center;
+}
+
+.base-1 {
+    position: relative;
+    width: 200px;
+    height: 80px;
+    margin: auto;
+    margin-top: -40px;
+    z-index: 1;
+}
+
+.base-2 {
+    position: relative;
+    width: 300px;
+    height: 80px;
+    margin: auto;
+    z-index: 2;
+    margin-top: -20px;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+}
+
+
+/* Estilos del modal */
+
+.modal-title
 {
-    width: 550px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.btn-close
+{
+    color: #fff;
+}
+
+.modal-content {
+    background: #141E30;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #243B55, #141E30);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #243B55, #141E30);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#modalMessage
+{
+    display: inline-block;
+    width: 450px;
+    background: #2980b9;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2c3e50, #2980b9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px;
+    margin: auto;
+    text-align: center;
 }

@@ -1,0 +1,58 @@
+//Tengo que tener en cuenta que cuando elimino las categorias y no quedan ningun el contenedor de categorias desaparece
+  
+//! cuando pongo el form donde dentro se encuentran el boton para agregar no me toma la accion.
+  
+//!Algo a tener en cuenta es que si excluyo el circulo del centro entonces la variable numSections sera 0
+  //! y si divido por 360 entonces sera 0 y la idea es que sea 360 en el caso de que sea solo una categoria.
+  //!Pero le estoy sumando un 1 entonces debo revisar bien.
+  
+  //!No me esta tomando el numSections como que agrego uno y ese se solapa por el otro entonces cuando agrego varias
+  //!en lugar de devolver n secciones me dice que tengo 1 que es la ultima que agregue.
+  
+  //* Esta contando el circulo central como hijo tambien. Tengo que tener cuidado en donde posiciono los msj
+  //!El problema que tengo es que cuando ingrese categorias en el contenedor (osea texto) no me cuenta lo mismo
+  //!en la ruleta, osea voy a tener dos categorias pero en la ruleta solo tendre agregado la ultima seccion que seria
+  //!la ultima categoria que agregue entonces como que ira atrasado una categoria.
+  //*Se podria solucionar sumando un 1 al numero de secciones o tomando como referencia la cantidad de categorias
+  //*que tengo en el contenedor(osea categorias en texto).
+  
+  //!Cuando asigno el color tengo que revisar que no lo tenga otra seccion asi no repito colores
+
+  Ideas sobre modificacion de nombres de categorias:
+  + Agregar un action listener al contenedor donde se encuentran las categorias?
+    Osea pueden modificar pero hasta que no presionen el boton de "Guardar cambios" no se puede reflejar el cambios
+    en la seccion. Entonces 
+  + Creo que la mejor opcion es agregar un listener al button "Guardar cambios" pero antes de estos tengo una
+    variable que tiene los span donde estan los nombres de las categorias para consultar si cambio el nombre
+    del span con respecto al de la seccion. Pero tambien debo tener en cuenta que debo saber diferenciar cuando
+    se presiona el boton guardar cambios porque tambien es de modificar. Para eso la solucion es verificar si
+    cuando se presiona el boton tiene el texto "Guardar cambios" sino no se hara nada.
+
+    Cambio el id del boton no es buena opcion porque no encontrar el boton cuando lo llame con un id que no tiene.
+    La opcion mas viable es agregar el action listener al boton y que haga cambios solo cuando el boton se llama
+    "Guardar cambios". De esta forma cuando el boton se llama "Modificar" se acciona el listener pero no hara nada
+    
++  Podria usar la logica del script modifyCategory para agregarle la logica de actualizar las secciones segun 
+   los span que fueron modificados. Comparando los nombres pero para esto podria obtener los span apenas se presiona
+   el boton y luego comparar los nombres si cambiaron o no. Pero tendria que pensar si es buena idea obtener todos o no.
+
++ Agregar un atributo a los span que fueron modificado y luego obtener los span con dicho atributo y asi me ahorro
+  recorrer todos los span.
+  Me conviene poner solo data-modify y luego eliminarlo cuando ya actualizo la seccion en lugar de poner true y false.  
++ Al poner los listener a los span si modifico primero y luego vuelvo a modificar el atributo no se agregara dos veces
+  sino que se confirmara que ya existe y seguira siendo un atributo.
+
++ Con closest obtengo el elemento anterior.
+
++ Algo a tener en cuentra con el uso de var en las variables declaradas es que si los uso con var son globales. Ahi
+  es donde podria tener problemas en reasignar los valores en otros scripts si declaro variables con el mismo nombre.
+  Es mejor usar const para las variables que no seran reasignadas.
+
++ Las variables declaradas con const tienen un alcance de bloque, lo que significa que solo están disponibles 
+  dentro del bloque { } en el que se declaran.
+  Esto ayuda a prevenir errores al mantener las variables dentro del contexto en el que se usan.
+
++ Cuando se trabaja con elementos usando los metodos como queryselector o getleelementbyid se obtienen referencias 
+  como los punteros. Entonces cualquier cambio que haga se refleja en el elemento.
+
++ No debo olvidarme de los puntos que indican que son clase al usar los metodos como queryselectorall u otros.
