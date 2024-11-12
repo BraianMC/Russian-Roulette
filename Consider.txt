@@ -56,3 +56,83 @@
   como los punteros. Entonces cualquier cambio que haga se refleja en el elemento.
 
 + No debo olvidarme de los puntos que indican que son clase al usar los metodos como queryselectorall u otros.
+
+
++ Limpio el valor de rotation dentro de la function donde calculo el indice
++ Puede que ese sea el error pero falta verificar
++ Debo verificar si los indices empiezan de 0 o 1
++ Puede que se quedando atrasado un indice porque cuando son mas de 3 me devuelve el anterior en lugar del siguiente
+
+
++ Con la variable sectionCounter inicializa en -1 creo que puede funcionar ahora   
++ Debo probar de nuevo 
+
++ Creo que cuando esta terminando y tiene cerca un borde hace el ruido entonces ahi es donde incrementa y me data
+  mal el resultado
+
++ Cuando tengo cuatros secciones eso no me pasa porque no esta cerca de un borde osea no estaria cerca del rango
+  para que suene el tick por eso me da un buen resultado
+
++ Probar sin el rotation = 0 para que la ruleta continue si
+
++ Una solucion posible al girar la ruleta y que se incremente de mas porque detecta el borde de una seccion es que 
+  si en cierta cantidad de secciones ocurre que la aguja esta cerca de los bordes entonces no dejaria que entre 
+  a esa linea de codigo con un if indicando que no ingrese si se encuentra con cierta cantidad de seccciones
+  asi evitaria que se incremente de mas cuando termine de girar.
+
++ Otro problema que solucione fue que al terminar de girar la ruleta y si presiono de nuevo para girar la ruleta
+  no me arroje el mismo resultado sino que uno diferente entonces en ese caso lo que hice con el contador que es el 
+  cuenta la secciones y determinar el resultado es solo inicializarlo al principio y luego mientras no se actualice
+  la pagina no se inicializara de nuevo a -1 solo se manejara con el mod evitando que no se pase el contador. 
+  Entonces con esto evito el problema que tenia de que una vez que gire la ruleta, si presionaba de nuevo la ruleta 
+  me tiraba el mismo resultado entonces ahora con esto que hice ya no lo hace. Tambien lo hice con la variable 
+  rotation.
+   
++ Tengo un problema que pasa cuando tengo 3 secciones donde la seccion 2 no le acierta bien
++ Cuando tengo cinco secciones tengo problemas con la seccion 4 y 3
++ Ver otra forma de obtener el resultado. Podria ser obtener el nombre directamente pero no se bien
+
++Intentar cambiar el orden de la secciones
+
++ La ruleta va en sentido inverso y empieza a girar desde la ultima seccion entonces con esto podria cambiar
+  el contador que se incrementa pero lo cambiaria para que se decremente osea que empieze con el valor total de 
+  secciones para que vaya descontando y asi le calculo la seccion pero cuando llega a cero vuelve al tope que seria
+  el valor total de secciones.
+
++ Al cambiar el sentido de rotacion de la ruleta
++ Revisar bien porque no me calcula bien el borde para el sonido
+
++ No esta sonando a tiempo el tick se pasa del angulo
+
++ Cuando calculo el indice de la seccion deberia de redondearlo para arriba cuando me da con coma. Y tambien tendria
+  que tener en cuenta al momento de redondear para arrriba que no se pase del limite de secciones como por ejemplo si son 
+  dos secciones entonces seria 0 y 1 y si esta en 1.34 seria 0. Buscar la logica para lograr eso.
+
++ Ver cuando debo redondear para arriba porque aveces le acierta a la seccion
+
+Observaciones:
++ Para dos secciones tengo que incrementar uno el index
++ Para tres secciones, me puede dar un numero de un digito en ese caso no divido por sectionAngle
+  En el primer intento le acierta bien a la seccion luego no le acierta.
+  Cuando ya gire la ruleta con dos secciones y agrego una categoria mas para girar de nuevo no le acierta
+
++ El problema esta en la variable rotation podria hacer que se reinicie rotation cuando termine de girar para que de
+  otro resultado pero al apretar de nuevo para girar la ruleta se movera cierta x cantidad para que no me de el mismo 
+  resultado por ejemplo en la segunda vuelta podria rotation empezar con 30 pero la cantidad con la que empieza seria entre
+  un valor fijo como 30 entonces se iria acumulando y creo que me serviria para que no se acumule rotation y pueda calcular
+  bien el valor index de la seccion
+
++ Otra forma podria ser que cuando la ruleta gire y alcance la aguja se reinicie a cero como que empieze de nuevo porque
+  ya completo una vuelta
+
++ Creo que rotation con 360 no es una vuelta, debo ver con cuantos grados da una vuelta la ruleta
+
++ probar con las coordenadas del needle y las secciones. Si la seccion esta dentro de la coordenas del needle entonces
+  ese es el resultado.
+
++ La solucion para acertar con el resultado de la ruleta fue que span osea donde se encuentra el nombre de la categoria
+  se encuentra mas cerca del needle (la aguja) entonce obteniendo las coordenadas del needle y comparando con los spans
+  lo solucione
++ Me faltaria correjir los porcentajes de las secciones cuando le doy forma de polygon porque en ciertos casos cuando
+  la aguja se inclina por otra seccion osea el resulta me da otro porque no esta bien repartido los porcentajes pero no
+  no es la gran cosa.

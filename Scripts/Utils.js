@@ -3,7 +3,7 @@ function getFixedPoints(numSections)
     const points = {
         1: "0",
         2: "50% 50%, 100% 0%, 100% 100%, 0% 100%",
-        3: "50% 50%, 100% 0%, 100% 100%, 60% 100%",
+        3: "50% 50%, 100% 0%, 100% 100%, 63% 100%",
         4: "50% 50%, 100% 0%, 100% 100%, 100% 100%",
         5: "50% 50%, 100% 0%, 100% 100%, 145% 100%",
         6: "50% 50%, 100% 0%, 100% 100%, 225% 100%",
@@ -42,7 +42,7 @@ function updateSpanStyles(numSections)
     const styleMap = {
         1: { transform: 'rotate(225deg)', left: '23%', top: '23%'},
         2: { transform: 'rotate(225deg)', left: '23%', top: '23%' },
-        3: { transform: 'rotate(200deg)', left: '32%', top: '8%' },
+        3: { transform: 'rotate(196deg)', left: '32%', top: '8%' },
         4: { transform: 'rotate(180deg)', left: '30%', top: '0%' },
         5: { transform: 'rotate(170deg)', left: '30%', top: '-5%' },
         6: { transform: 'rotate(165deg)', left: '30%', top: '-8%' },
