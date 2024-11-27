@@ -14,15 +14,14 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
   
-      //Clonamos la plantilla
+      //*Clonamos la plantilla
       var categoryTemplate = document.getElementById("categoryTemplate");
       var newCategory = categoryTemplate.cloneNode(true);
       newCategory.classList.remove("category-item");
       newCategory.classList.add("cloned-category-item");
   
-      console.log(categoryTemplate);
   
-        //Agregamos el nombre de la nueva categoria
+      //*Agregamos el nombre de la nueva categoria
       newCategory.classList.remove("d-none");
       newCategory.querySelector('span').textContent = categoryName;
   
@@ -57,35 +56,37 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
   
+
   function AddCategoryToRoulette(categoryName, idCategory) {
   
     var roulette = document.getElementById("roulette");
     var numSections = roulette.children.length;
     var angleDistance = 0;  
-    //Le sumo 1 porque todavia no esta la seccion en la ruleta
+    
+    //*Le sumo 1 porque todavia no esta la seccion en la ruleta
     numSections += 1;
     numSections -= 1;
   
   
-    //Obtengo los colores de las secciones existentes y los convierto a hexadecimal
+    //*Obtengo los colores de las secciones existentes y los convierto a hexadecimal
     var usedColors = Array.from(roulette.children).map(child => rgbToHex(child.style.backgroundColor)).filter(color => color !== null);
     console.log("Colores usados:", usedColors);
   
-    //Filtro los colores disponibles (siempre habra colores disponibles porque no elimino colores)
+    //*Filtro los colores disponibles (siempre habra colores disponibles porque no elimino colores)
     var availableColors = colorCodes.filter(color => !usedColors.includes(color));
     console.log("Colores disponibles:", availableColors);
   
-    // Verifica si hay colores disponibles (esto es mas por si acaso pero nunca pasara que me quede sin colores)
+    // *Verifica si hay colores disponibles (esto es mas por si acaso pero nunca pasara que me quede sin colores)
     if (availableColors.length === 0) {
       console.log("No hay más colores disponibles.");
       return;
     }
   
-    //Obtengo al azar un color de los disponibles
+    //*Obtengo al azar un color de los disponibles
     var colorIndex = Math.floor(Math.random() * availableColors.length);
     var selectedColor = availableColors[colorIndex];
   
-    //Creo una nueva seccion
+    //*Creo una nueva seccion
     var newSection = document.createElement("div");
     newSection.classList.add("roulette-section");
     newSection.style.backgroundColor = selectedColor;

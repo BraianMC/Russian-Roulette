@@ -112,34 +112,25 @@ h1 {
 
 .scrollbar::-webkit-scrollbar {
     width: 10px;
-    /* Ancho de la barra de desplazamiento */
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
     background-color: #2f2f30;
-    /* Color del "pulgar" */
     border-radius: 10px;
-    /* Bordes redondeados del "pulgar" */
 }
 
 .editable {
     border: 1px solid #a8a7a4;
-    /* Border color */
     padding: 2px;
-    /* Padding to make space inside the border */
     min-width: 80px;
-    /* Minimum width to make the span visible */
     display: inline-block;
     border-radius: 5px;
 }
 
 .editable:focus {
     outline: none;
-    /* Quitar el borde predeterminado de enfoque */
     border-color: rgb(28, 80, 250);
-    /* Cambiar el color del borde cuando está enfocado */
     box-shadow: 0 0 0 2px rgba(0, 0, 255, 0.2);
-    /* Borde interno */
 }
 
 
@@ -179,7 +170,6 @@ h1 {
 
     50% {
         transform: translateX(-50%) translateY(-10px);
-        /* Ajusta según sea necesario */
     }
 
     100% {
@@ -200,7 +190,6 @@ h1 {
     overflow: hidden;
     transform: rotate(495deg);
     transform-origin: center center;
-    /* animation: girar 15s linear infinite; */
     z-index: 4;
 }
 
@@ -218,7 +207,6 @@ h1 {
     z-index: 5;
     cursor: pointer;
     box-shadow: 0 0 50px rgba(0, 247, 255, 0.5);
-    /* Añade una sombra */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -228,7 +216,6 @@ h1 {
 
 .circle-pointer {
 
-    /* position: absolute; */
     transform: rotate(225deg);
 }
 
@@ -251,11 +238,8 @@ h1 {
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
     font-style: normal;
-    position: relative;
-    /* transform: rotate(153deg); */
-    
+    position: relative;    
     width: 117px;
-    /* background-color: #000000; */
     transform-origin: center center;
 }
 
@@ -295,20 +279,17 @@ h1 {
 
 .modal-content {
     background: #141E30;
-    /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, #243B55, #141E30);
-    /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to top, #243B55, #141E30);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 #modalMessage
 {
     display: inline-block;
     width: 450px;
-    background: #2980b9;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #2c3e50, #2980b9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #2980b9;  
+    background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);  
+    background: linear-gradient(to right, #2c3e50, #2980b9); 
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;

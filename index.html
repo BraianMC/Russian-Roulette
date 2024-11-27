@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"crossorigin="anonymous"></script>
     <script src="Scripts/Utils.js"></script>
@@ -32,7 +31,7 @@
         <div class="container-btns d-flex mt-4 p-2">
             <input class="form-control custom-size-input" type="text" placeholder="Ingrese una categoria" id="categoryInput">
             <button class="custom-btn-add ms-2" id="add-button">Agregar</button>
-            <button class="custom-btn-modify ms-2" id="modify-button">Modificar</button>
+            <button class="custom-btn-modify ms-2" id="modify-button">Habilitar edicion</button>
             <button class="custom-btn-all-delete ms-2 d-none" id="button-all-delete">Borrar todo</button>
         </div>
 
@@ -48,7 +47,7 @@
                         <button class="btn btn-danger">
                             <i class="fa-regular fa-trash-can text-white"></i>
                         </button>
-                    </div>
+                    </div>               
                 </div>
             </div>
             <div class="bg-danger border border-2 border-danger rounded p-2 shadow d-flex" id="no-categories">
@@ -68,7 +67,6 @@
                     <img width="48" height="48" class="circle-pointer" id="click" src="https://img.icons8.com/pulsar-gradient/48/hand-cursor.png" alt="hand-cursor"/>
                 </div>
                 <!-- Aqui van las secciones que se crean dinamicamente -->
-    
             </div>
         </div>
         
@@ -77,9 +75,8 @@
         
     </div>
     <audio id="tickSound" src="media/tick.mp3"></audio>
-    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Mostrar modal    
-    </button> -->
+    
+    
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">

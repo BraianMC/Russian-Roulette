@@ -1,7 +1,6 @@
 function getFixedPoints(numSections) 
 {
     const points = {
-        1: "0",
         2: "50% 50%, 100% 0%, 100% 100%, 0% 100%",
         3: "50% 50%, 100% 0%, 100% 100%, 63% 100%",
         4: "50% 50%, 100% 0%, 100% 100%, 100% 100%",
@@ -13,6 +12,7 @@ function getFixedPoints(numSections)
         10: "50% 50%, 100% 0%, 100% 100%, 400% 0%"
 
     };
+    
     return points[numSections];
 }
 
@@ -26,13 +26,23 @@ function calculatePolygonPoints(numSections)
 function updateCategories(angleDistance, clipPathValor)
 {
     var sections = document.querySelectorAll(".roulette-section");
-    var i = 0;
-    sections.forEach(section => {
-        var angleSection = angleDistance * i;
-        section.style.clipPath = clipPathValor;
-        section.style.transform = `rotate(${angleSection}deg)`;
-        i += 1;
-    });
+    
+    if (sections.length === 1)
+    {
+        const section = sections[0];
+        section.style.clipPath = ""
+    }
+    else
+    {
+        var i = 0;
+        sections.forEach(section => {
+            var angleSection = angleDistance * i;
+            section.style.clipPath = clipPathValor;
+            section.style.transform = `rotate(${angleSection}deg)`;
+            i += 1;
+        });
+    }
+    
 }
 
 
@@ -53,7 +63,6 @@ function updateSpanStyles(numSections)
     };
 
     const spans = document.querySelectorAll(".span-name");
-    console.log(spans);
     const styles = styleMap[numSections];
     spans.forEach(span => {
         span.style.transform = styles.transform;
@@ -61,5 +70,3 @@ function updateSpanStyles(numSections)
         span.style.top = styles.top;
     });
 }
-
-// !Agregaria una funcion parecida para los puntos pero segun la cantidad de secciones te dara un valor para el span
